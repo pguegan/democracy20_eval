@@ -1,5 +1,4 @@
-require_relative './candidate'
-require_relative './ranking'
+require 'ranking'
 
 class Election
 

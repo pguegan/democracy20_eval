@@ -8,8 +8,8 @@ class Ranking
   end
 
   def eliminate(candidate)
-    @candidates.first.votes += candidate.votes
     @candidates.delete candidate
+    @candidates.first.votes += candidate.votes
   end
 
 end
