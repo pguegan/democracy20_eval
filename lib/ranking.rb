@@ -3,12 +3,13 @@ class Ranking
   attr_reader :votes, :candidates
 
   def initialize(votes, candidates)
-    @votes = votes
     @candidates = candidates
+    @candidates.first.votes += votes
   end
 
-  def winner
-    @candidates.first
+  def eliminate(candidate)
+    @candidates.first.votes += candidate.votes
+    @candidates.delete candidate
   end
 
 end

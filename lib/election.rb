@@ -11,9 +11,8 @@ class Election
 
   def winner
     loop do
-      loser = sums_of_first_candidates.min_by{ |candidate, votes| votes }.first
       rankings.each do |ranking|
-        ranking.candidates.delete loser
+        ranking.eliminate loser
       end
       return rankings.first.candidates.first if rankings.first.candidates.one?
     end
@@ -21,13 +20,12 @@ class Election
 
   private
 
-  def sums_of_first_candidates
-    sums = {}
-    rankings.each do |ranking|
-      sums[ranking.winner] ||= 0
-      sums[ranking.winner] += ranking.votes
-    end
-    sums
+  def loser
+    candidates.min_by(&:votes)
+  end
+
+  def candidates
+    rankings.map(&:candidates).flatten.uniq
   end
 
 end
