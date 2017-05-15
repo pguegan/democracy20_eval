@@ -22,10 +22,28 @@ class Ranking
     end
   end
 
+  def compare(c_1, c_2)
+    if position_of(c_1) < position_of(c_2)
+      increment_candidate c_1
+    else
+      increment_candidate c_2
+    end
+  end
+
   # Le nombre de fois où on a voté pour ce classement
   # est stocké sur le premier candidat du classement
   def increment_first_candidate(count = @count)
-    @candidates.first.votes += count
+    increment_candidate @candidates.first, count: count
+  end
+
+  private
+
+  def increment_candidate(candidate, count: @count)
+    candidate.votes += count
+  end
+
+  def position_of(candidate)
+    @candidates.rindex candidate
   end
 
 end

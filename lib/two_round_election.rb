@@ -3,7 +3,6 @@ require 'election'
 class TwoRoundElection < Election
 
   def winner
-    return nil if candidates.empty?
     if winner = absolute_winner
       winner
     else
