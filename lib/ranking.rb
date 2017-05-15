@@ -10,13 +10,15 @@ class Ranking
     increment_first_candidate
   end
 
-  def eliminate(candidate)
-    if @candidates.first == candidate
-      @candidates.delete candidate
-      # On reporte les voix sur le nouveau premier candidat du classement
-      increment_first_candidate
-    else
-      @candidates.delete candidate
+  def eliminate(*losers)
+    losers.each do |loser|
+      if loser == @candidates.first
+        @candidates.delete loser
+        # On reporte les voix sur le nouveau premier candidat du classement
+        increment_first_candidate
+      else
+        @candidates.delete loser
+      end
     end
   end
 

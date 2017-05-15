@@ -32,8 +32,8 @@ RSpec.describe Ranking do
 
     it "deletes candidate from ranking" do
       expect do
-        ranking.eliminate basile
-      end.to change(ranking, :candidates).from([albert, basile, cecile]).to([albert, cecile])
+        ranking.eliminate basile, cecile
+      end.to change(ranking, :candidates).from([albert, basile, cecile]).to([albert])
     end
 
     it "ignores unknown candidate" do

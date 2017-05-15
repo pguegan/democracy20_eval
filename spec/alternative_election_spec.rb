@@ -1,8 +1,8 @@
-require 'election'
+require 'alternative_election'
 
 RSpec.describe Election do
 
-  let(:election) { Election.new }
+  let(:election) { AlternativeElection.new }
   let(:albert) { Candidate.new "Albert" }
   let(:basile) { Candidate.new "Basile" }
   let(:cecile) { Candidate.new "Cécile" }

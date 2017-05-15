@@ -18,7 +18,7 @@ RSpec.describe Candidate do
       expect(candidate.votes).to eq(0)
     end
 
-    it "returns candidate's current votes count" do
+    it "is candidate's current votes count" do
       expect do
         candidate.votes = 75
       end.to change(candidate, :votes).from(0).to(75)
