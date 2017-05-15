@@ -2,7 +2,7 @@ class Ranking
 
   # Le classement des candidats correspond directement
   # à leur position dans le tableau `candidates`
-  attr_reader :candidates
+  attr_reader :candidates, :count
 
   def initialize(count, candidates)
     @candidates = candidates

@@ -1,8 +1,8 @@
-require 'alternative_election'
+require 'condorcet_election'
 
-RSpec.describe AlternativeElection do
+RSpec.describe CondorcetElection do
 
-  let(:election) { AlternativeElection.new }
+  let(:election) { CondorcetElection.new }
   let(:albert) { Candidate.new "Albert" }
   let(:basile) { Candidate.new "Basile" }
   let(:cecile) { Candidate.new "Cécile" }
@@ -74,7 +74,7 @@ RSpec.describe AlternativeElection do
         election.rank(count: 1_636, candidates: [didier, cecile, emilie, basile, albert])
         election.rank(count: 727,   candidates: [emilie, basile, didier, cecile, albert])
         election.rank(count: 364,   candidates: [emilie, cecile, didier, basile, albert])
-        expect(election.winner).to eq(cecile)
+        expect(election.winner).to eq(emilie)
       end
 
     end
