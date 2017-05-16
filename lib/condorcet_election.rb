@@ -32,7 +32,9 @@ class CondorcetElection < Election
     candidates.combination(2).each do |c_1, c_2|
       compare c_1, c_2
     end
-    candidates.max_by(&:victories)
+    # BUG is Ruby < 2.4
+    # candidates.max_by(&:victories)
+    candidates.max_by { |candidate| candidate.victories }
   end
 
   private

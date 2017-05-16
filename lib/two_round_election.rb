@@ -20,7 +20,7 @@ class TwoRoundElection < Election
   end
 
   def total_votes
-    candidates.sum &:votes
+    candidates.inject(0) { |sum, candidate| sum + candidate.votes }
   end
 
   def eliminate_first_round_losers
