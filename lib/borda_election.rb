@@ -1,1 +1,1 @@
-# TODO: Implémenter la classe Ring ici
+# TODO: Implémenter la classe BordaElection ici
