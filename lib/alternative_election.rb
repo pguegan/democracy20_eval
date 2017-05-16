@@ -5,7 +5,7 @@ class AlternativeElection < Election
   def winner
     return nil if candidates.empty?
     until candidates.one? do
-      @rankings.each do |ranking|
+      rankings.each do |ranking|
         ranking.eliminate loser
       end
     end

@@ -36,14 +36,14 @@ class Ranking
     increment_candidate @candidates.first, count: count
   end
 
+  def position_of(candidate)
+    @candidates.rindex candidate
+  end
+
   private
 
   def increment_candidate(candidate, count: @count)
     candidate.votes += count
-  end
-
-  def position_of(candidate)
-    @candidates.rindex candidate
   end
 
 end

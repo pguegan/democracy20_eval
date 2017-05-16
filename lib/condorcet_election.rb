@@ -45,7 +45,7 @@ class CondorcetElection < Election
     # On réinitialise le nombre de votes de chaque candidat
     # à chaque confrontation (chaque duel est indépendant)
     c_1.votes, c_2.votes = 0, 0
-    @rankings.each do |ranking|
+    rankings.each do |ranking|
       ranking.compare c_1, c_2
     end
     c_1.compare c_2

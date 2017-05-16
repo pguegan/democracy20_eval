@@ -26,7 +26,7 @@ class TwoRoundElection < Election
   def eliminate_first_round_losers
     first_round_winners = candidates.max_by 2, &:votes
     first_round_losers = candidates - first_round_winners
-    @rankings.each do |ranking|
+    rankings.each do |ranking|
       ranking.eliminate *first_round_losers
     end
   end
